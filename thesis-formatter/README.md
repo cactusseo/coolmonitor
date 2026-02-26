@@ -1,37 +1,37 @@
-# Thesis Formatter
+# Thesis Formatter (论文格式化工具)
 
-A specialized tool to help students format their theses according to strict academic guidelines using Semantic Mapping and LLMs.
+这是一个专注于帮助大学生按照严格的学术规范自动调整论文格式的工具，采用语义映射（Semantic Mapping）和 LLM 技术。
 
-## Project Structure
+## 项目结构
 
-- `backend/`: FastAPI application handling document processing, logic, and LLM interaction.
-- `frontend/`: Next.js application for user interaction (upload, preview, download).
-- `DESIGN.md`: Detailed technical design document.
+- `backend/`: FastAPI 后端应用，负责文档处理逻辑、LLM 交互等。
+- `frontend/`: Next.js 前端应用，提供文件上传、预览、下载等用户界面。
+- `DESIGN.md`: 详细的技术设计文档（中文版）。
 
-## Architecture
+## 架构核心
 
-1.  **Semantic Mapping**: Instead of asking an LLM to "rewrite" the document, we use it to classify text blocks (Heading, Body, Caption, etc.).
-2.  **Deterministic Formatting**: A Python engine (`python-docx`) rebuilds the document applying precise styles based on the semantic map.
+1.  **语义映射 (Semantic Mapping)**: 我们**不**让 LLM 直接“重写”文档，而是利用 LLM 识别文本块的语义类别（如：一级标题、正文、图片标题等）。
+2.  **确定性格式化 (Deterministic Formatting)**: 使用 Python 引擎 (`python-docx`) 根据语义图谱，严格按照规则模板重建文档，确保格式精准无误。
 
-## Getting Started
+## 快速开始
 
-### Prerequisites
+### 前置条件
 
 - Python 3.10+
 - Node.js 18+
-- Docker (optional, for Redis/Postgres)
+- Docker (可选，用于 Redis/Postgres)
 
-### Backend Setup
+### 后端设置
 
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+source venv/bin/activate  # Windows 用户: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### Frontend Setup
+### 前端设置
 
 ```bash
 cd frontend
@@ -39,20 +39,20 @@ npm install
 npm run dev
 ```
 
-## Roadmap
+## 路线图 (Roadmap)
 
-- [ ] **Phase 1 (MVP)**:
-    - [x] Project Scaffolding
-    - [ ] Core Formatting Engine (Python-docx wrapper)
-    - [ ] Semantic Mapper (LLM Integration)
-    - [ ] Basic Web UI (Upload -> Process -> Download)
-- [ ] **Phase 2**:
-    - [ ] School Database
-    - [ ] User Accounts
-- [ ] **Phase 3**:
-    - [ ] LaTeX Support
-    - [ ] Citations
+- [ ] **第一阶段 (MVP)**:
+    - [x] 项目脚手架搭建
+    - [ ] 核心格式化引擎 (Python-docx 封装)
+    - [ ] 语义映射器 (LLM 集成)
+    - [ ] 基础 Web 界面 (上传 -> 处理 -> 下载)
+- [ ] **第二阶段**:
+    - [ ] 学校格式数据库
+    - [ ] 用户账户系统
+- [ ] **第三阶段**:
+    - [ ] LaTeX 支持
+    - [ ] 参考文献自动转换
 
-## License
+## 许可证
 
 MIT
